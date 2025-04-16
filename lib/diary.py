@@ -6,7 +6,7 @@ class Diary_Entry:
         self.title = title
         self.contents = contents
         self.still_to_read = contents.split()
-
+ 
     def format(self):
         return f"{self.title.title()}:  {self.contents}"    
         

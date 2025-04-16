@@ -13,12 +13,25 @@
 #         else:
 #             return "Your grammar is incorrect.  Remember to end your sentences with appropriate punctuation."
 
-class GrammarStats:
+class GrammarStats():
     def __init__(self):
-        pass
+        self.passed_checks = 0
+        self.failed_checks = 0
 
     def check(self, text):
-        return self. text[0] == self.text.upper()[0] and self.text[-1] in '?.!' 
+        if not isinstance(text, str):
+            return None
+        else:
+            result = text[0].isupper() and text[-1] in '?.!' 
+            if result == True:
+                self.passed_checks += 1 
+            else:
+                self.failed_checks += 1
+            return result
+        
 
     def percentage_good(self):
-        pass
+        total = self.passed_checks + self.failed_checks
+        if self.passed_checks != 0:
+            return round((self.passed_checks/total*100), 2)
+        
